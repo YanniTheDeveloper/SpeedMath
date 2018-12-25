@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Speed Math</string>
+    <string name="level">Level</string>
+    <string name="score">Score</string>
+    <string name="high_score">High Score</string>
+    <string name="play_again">Play Again</string>
+</resources>
