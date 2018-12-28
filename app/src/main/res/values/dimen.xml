@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="progress_bar_height">10dp</dimen>
-    <dimen name="quiz_font">21</dimen>
-    <dimen name="result_font">32</dimen>
-    <dimen name="text_font">16</dimen>
+    <dimen name="small_space">8dp</dimen>
+    <dimen name="quiz_font">36sp</dimen>
+    <dimen name="result_font">32sp</dimen>
+    <dimen name="text_font">16sp</dimen>
+
 </resources>

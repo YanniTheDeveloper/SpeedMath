@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -23,28 +24,47 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:baselineAligned="false">
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:textSize="@dimen/text_font"
+                    android:text="@string/level"/>
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:textSize="@dimen/result_font"
+                    android:textColor="@color/colorAccent"
+                    android:id="@+id/level"
+                    android:text="1"/>
             </LinearLayout>
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:orientation="vertical">
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:text="@string/score"
+                    android:textSize="@dimen/text_font"
+                    android:layout_gravity="end"/>
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:textSize="@dimen/result_font"
+                    android:textColor="@color/colorAccent"
+                    android:id="@+id/score"
+                    android:text="600"/>
             </LinearLayout>
         </LinearLayout>
 
@@ -69,6 +89,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        android:id="@+id/quiz"
+        android:textAlignment="center"
         android:textSize="@dimen/quiz_font"/>
 
     <LinearLayout
@@ -83,17 +105,28 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintStart_toStartOf="parent"
+        >
 
         <ImageButton
+            android:id="@+id/yes"
+            android:layout_margin="@dimen/small_space"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:src="@drawable/ok_96px"
+            android:background="@color/background"
+            android:contentDescription="true button" />
 
         <ImageButton
+            android:id="@+id/no"
+            android:layout_margin="@dimen/small_space"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:src="@drawable/cancel_96px"
+            android:background="@color/background"
+            android:contentDescription="false button"/>
     </LinearLayout>
 
 
