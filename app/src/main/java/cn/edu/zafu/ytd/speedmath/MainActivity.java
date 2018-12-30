@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTick(long millisUntilFinished) {
-                if(game.getPlay()==0) super.cancel();
+                if(game.getPlay()==0 || check == 0) super.cancel();
                 progress = progress-2;
                 progressBar.setProgress(progress);
                 Log.e("here", "onTick: value: "+progress, null);
@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
     private void yesNo(boolean answer){
-        mCountDownTimer.cancel();
+        check = 1;
         Log.e("yesNo", " score: "+game.getScore(), null);
         if(game.checkAnswer(answer)) {
             mCountDownTimer.start();
