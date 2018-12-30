@@ -28,14 +28,14 @@ public class Quiz {
         }*/
     }
     private void level1(int level){
-        int a = randomNumber(0,100*level);
-        int b = randomNumber(0,100*level);
+        int a = randomNumber(0,10*level);
+        int b = randomNumber(0,10*level);
         question = a + " + " + b + " = ";
         if(randomNumber(0,2)==1){
             question += a+b;
             answer = true;
         }else{
-            int c = randomNumber(0,11-level);
+            int c = randomNumber(0,Math.abs(15-level));
             if(randomNumber(0,2)==1){
                 c*=10;
             }

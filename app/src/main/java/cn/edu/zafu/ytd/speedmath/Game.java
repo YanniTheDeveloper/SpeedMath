@@ -9,7 +9,7 @@ public class Game {
     Quiz currentQuiz;
 
     public Game(){
-        resetValues();
+        startOver();
         currentQuiz = new Quiz();
     }
     public String getQuiz(){
@@ -20,7 +20,6 @@ public class Game {
             updateValue();
             return true;
         }
-        resetValues();
         return false;
     }
     private void updateValue(){
@@ -39,10 +38,15 @@ public class Game {
         score = 0;
         totalQA = 0;
         multiplier = 5;
-        play = 0;
+
     }
     public void gameOver(){
-       resetValues();
+        resetValues();
+        play = 0;
+    }
+    public void startOver(){
+        resetValues();
+        play = 1;
     }
     public int getLevel() {
         return level;
