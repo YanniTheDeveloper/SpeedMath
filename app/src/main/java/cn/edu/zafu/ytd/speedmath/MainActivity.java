@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
     int check;
     int hScore = 0, time, interval;
     private Handler mHandler ;
-    CountDownTimer mCountDownTimer;
+    MyCountDownTimer mCountDownTimer;
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,12 +89,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void gameTimer(){
-        mCountDownTimer=new CountDownTimer(time,interval) {
+        mCountDownTimer=new MyCountDownTimer(time,interval) {
 
             @Override
             public void onTick(long millisUntilFinished) {
-                if(game.getPlay()==0 || check == 0) super.cancel();
-                progress = progress-2;
+                if(game.getPlay()==0 )
+                    super.cancel();
+                progress = progress-1;
                 progressBar.setProgress(progress);
                 Log.e("here", "onTick: value: "+progress, null);
             }
@@ -102,18 +103,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
                 //Do what you want
+                if(game.getPlay()==0 || check == 1) super.cancel();
                 Log.e("Error", "onFinish: "+progress, null);
                 endGame();
             }
+
         };
 
     }
     private void yesNo(boolean answer){
-        check = 1;
+        mCountDownTimer.endTimer();
         Log.e("yesNo", " score: "+game.getScore(), null);
         if(game.checkAnswer(answer)) {
-            mCountDownTimer.start();
             updateView();
+            mCountDownTimer.start();
         }
         else {
             endGame();
@@ -132,8 +135,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateView(){
-        time = Math.abs(11 - game.getLevel())*1000;
-        interval = time / 50;
+        time = Math.abs(51 - (4*game.getFast()))*100;
+        interval = time/100;
         progress = 100;
         gameTimer();
         quiz.setText(game.getQuiz());

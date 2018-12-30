@@ -6,6 +6,7 @@ public class Game {
     int multiplier;
     int totalQA;
     int play;
+    int fast;
     Quiz currentQuiz;
 
     public Game(){
@@ -31,14 +32,14 @@ public class Game {
             level++;
             multiplier *= 2;
         }
-
+        fast++;
     }
     private void resetValues() {
         level = 1;
         score = 0;
         totalQA = 0;
         multiplier = 5;
-
+        fast = 0;
     }
     public void gameOver(){
         resetValues();
@@ -58,5 +59,9 @@ public class Game {
 
     public int getPlay() {
         return play;
+    }
+
+    public int getFast() {
+        return fast;
     }
 }
